@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cupcakeria — Meus Pedidos</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <h1 class="logo">🧁 Cupcakeria</h1>
+      <p class="tagline">Cupcakes artesanais feitos com carinho</p>
+      <nav id="site-nav" class="site-nav"></nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Meus pedidos</h2>
+    <div id="orders-status" class="catalog-status"></div>
+    <div id="orders-list"></div>
+
+    <section class="panel" id="notifications-panel" hidden>
+      <h3>Minhas notificações</h3>
+      <p class="muted">Simulação de e-mail/WhatsApp enviados sobre seus pedidos.</p>
+      <div id="notifications-list"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Cupcakeria — Projeto acadêmico de Engenharia de Software I.</p>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/pedidos.js"></script>
+</body>
+</html>

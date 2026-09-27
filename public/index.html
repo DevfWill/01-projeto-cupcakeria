@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cupcakeria — Catálogo de Cupcakes</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <h1 class="logo">🧁 Cupcakeria</h1>
+      <p class="tagline">Cupcakes artesanais feitos com carinho</p>
+      <nav id="site-nav" class="site-nav"></nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="catalogo" aria-labelledby="catalogo-titulo">
+      <h2 id="catalogo-titulo">Nosso catálogo</h2>
+      <p class="section-desc">Visualize fotos e detalhes de todos os cupcakes disponíveis, e filtre por sabor.</p>
+
+      <div id="flavor-filter" class="flavor-filter" aria-label="Filtrar por sabor"></div>
+
+      <div id="catalog-status" class="catalog-status" role="status" aria-live="polite">
+        Carregando cupcakes...
+      </div>
+
+      <div id="catalog-grid" class="catalog-grid" hidden></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Cupcakeria — Projeto acadêmico de Engenharia de Software I.</p>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

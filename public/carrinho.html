@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cupcakeria — Carrinho e Checkout</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <h1 class="logo">🧁 Cupcakeria</h1>
+      <p class="tagline">Cupcakes artesanais feitos com carinho</p>
+      <nav id="site-nav" class="site-nav"></nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Seu carrinho</h2>
+
+    <div id="cart-empty" class="empty-state" hidden>
+      Seu carrinho está vazio. <a href="index.html">Ver catálogo</a>
+    </div>
+
+    <div id="cart-content" hidden>
+      <div class="panel" id="cart-items-panel"></div>
+
+      <div class="panel">
+        <h3>Cupom de desconto</h3>
+        <div id="coupon-alert"></div>
+        <div class="form-row two-cols">
+          <div class="form-group">
+            <label for="coupon-code">Código do cupom</label>
+            <input type="text" id="coupon-code" placeholder="Ex: BEMVINDO10">
+          </div>
+          <div class="form-group" style="justify-content:flex-end;">
+            <button id="apply-coupon-btn" class="btn btn-secondary">Aplicar cupom</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Entrega</h3>
+        <div class="form-row two-cols">
+          <div class="form-group">
+            <label for="cep-input">CEP</label>
+            <input type="text" id="cep-input" placeholder="00000-000">
+          </div>
+          <div class="form-group" style="justify-content:flex-end;">
+            <button id="calc-frete-btn" class="btn btn-secondary">Calcular frete</button>
+          </div>
+        </div>
+        <div id="frete-result" class="alert alert-info" hidden></div>
+
+        <div class="form-group">
+          <label for="address-input">Endereço completo</label>
+          <textarea id="address-input" rows="2" placeholder="Rua, número, bairro, cidade - UF"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="delivery-date">Data de entrega desejada</label>
+          <input type="date" id="delivery-date">
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Pagamento</h3>
+        <div class="form-group">
+          <label><input type="radio" name="payment" value="cartao" checked> Cartão de crédito</label>
+          <label><input type="radio" name="payment" value="pix"> Pix</label>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Resumo do pedido</h3>
+        <div id="order-summary"></div>
+        <div id="checkout-alert"></div>
+        <button id="checkout-btn" class="btn btn-primary btn-block" style="margin-top:14px;">Finalizar pedido</button>
+      </div>
+    </div>
+
+    <div id="order-success" class="panel" hidden></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Cupcakeria — Projeto acadêmico de Engenharia de Software I.</p>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/carrinho.js"></script>
+</body>
+</html>

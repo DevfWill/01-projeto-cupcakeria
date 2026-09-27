@@ -1,0 +1,21 @@
+{
+  "name": "cupcakeria",
+  "version": "1.0.0",
+  "description": "E-commerce de cupcakes - Projeto da disciplina de Engenharia de Software I",
+  "main": "server.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node --no-warnings server.js",
+    "dev": "node --no-warnings --watch server.js",
+    "test": "node --no-warnings --test"
+  },
+  "keywords": ["cupcakes", "e-commerce", "engenharia-de-software", "sqlite"],
+  "author": "William dos Santos",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

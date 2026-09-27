@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cupcakeria — Painel Administrativo</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <h1 class="logo">🧁 Cupcakeria</h1>
+      <p class="tagline">Painel administrativo</p>
+      <nav id="site-nav" class="site-nav"></nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="admin-denied" class="empty-state" hidden>
+      Acesso restrito a administradores. <a href="conta.html">Fazer login</a>
+    </div>
+
+    <div id="admin-content" hidden>
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="produtos">Produtos &amp; Estoque</button>
+        <button class="tab-btn" data-tab="pedidos">Pedidos</button>
+        <button class="tab-btn" data-tab="cupons">Cupons</button>
+        <button class="tab-btn" data-tab="clientes">Clientes</button>
+        <button class="tab-btn" data-tab="relatorios">Relatórios</button>
+      </div>
+
+      <!-- HU16/HU17 -->
+      <section class="tab-panel active" id="tab-produtos">
+        <div class="panel">
+          <h3>Cadastrar novo cupcake</h3>
+          <div id="product-form-alert"></div>
+          <form id="product-form">
+            <div class="form-row two-cols">
+              <div class="form-group">
+                <label for="p-name">Nome</label>
+                <input type="text" id="p-name" required>
+              </div>
+              <div class="form-group">
+                <label for="p-flavor">Sabor</label>
+                <input type="text" id="p-flavor" required>
+              </div>
+            </div>
+            <div class="form-row two-cols">
+              <div class="form-group">
+                <label for="p-price">Preço (R$)</label>
+                <input type="number" id="p-price" step="0.01" min="0.01" required>
+              </div>
+              <div class="form-group">
+                <label for="p-category">Categoria</label>
+                <select id="p-category">
+                  <option value="individual">Individual</option>
+                  <option value="kit">Kit pronto</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="p-description">Descrição</label>
+              <textarea id="p-description" rows="2"></textarea>
+            </div>
+            <div class="form-row two-cols">
+              <div class="form-group">
+                <label for="p-image">Nome do arquivo de foto (obrigatório)</label>
+                <input type="text" id="p-image" placeholder="cupcake-exemplo.jpg" required>
+              </div>
+              <div class="form-group">
+                <label for="p-stock">Estoque inicial</label>
+                <input type="number" id="p-stock" min="0" value="0">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="p-allergens">Alergênicos (separados por vírgula)</label>
+              <input type="text" id="p-allergens" placeholder="glúten, leite, ovo">
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar cupcake</button>
+          </form>
+        </div>
+
+        <div class="panel">
+          <h3>Catálogo atual</h3>
+          <div class="table-wrap">
+            <table class="data-table" id="products-table">
+              <thead>
+                <tr><th>Nome</th><th>Sabor</th><th>Categoria</th><th>Preço</th><th>Estoque</th><th></th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- HU19 -->
+      <section class="tab-panel" id="tab-pedidos">
+        <div class="panel">
+          <div class="form-group" style="max-width:260px;">
+            <label for="order-status-filter">Filtrar por status</label>
+            <select id="order-status-filter">
+              <option value="">Todos</option>
+              <option value="recebido">Recebido</option>
+              <option value="preparando">Em preparação</option>
+              <option value="saiu_para_entrega">Saiu para entrega</option>
+              <option value="entregue">Entregue</option>
+              <option value="cancelado">Cancelado</option>
+            </select>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table" id="orders-table">
+              <thead>
+                <tr><th>#</th><th>Cliente</th><th>Total</th><th>Entrega</th><th>Status</th><th>Atualizar</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- HU18 -->
+      <section class="tab-panel" id="tab-cupons">
+        <div class="panel">
+          <h3>Criar cupom</h3>
+          <div id="coupon-form-alert"></div>
+          <form id="coupon-form">
+            <div class="form-row two-cols">
+              <div class="form-group">
+                <label for="c-code">Código</label>
+                <input type="text" id="c-code" required>
+              </div>
+              <div class="form-group">
+                <label for="c-type">Tipo</label>
+                <select id="c-type">
+                  <option value="percent">Percentual (%)</option>
+                  <option value="fixed">Valor fixo (R$)</option>
+                  <option value="frete">Desconto no frete (%)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row two-cols">
+              <div class="form-group">
+                <label for="c-value">Valor</label>
+                <input type="number" id="c-value" step="0.01" required>
+              </div>
+              <div class="form-group">
+                <label for="c-min">Pedido mínimo (R$)</label>
+                <input type="number" id="c-min" step="0.01" value="0">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="c-description">Descrição</label>
+              <input type="text" id="c-description">
+            </div>
+            <button type="submit" class="btn btn-primary">Criar cupom</button>
+          </form>
+        </div>
+
+        <div class="panel">
+          <h3>Cupons cadastrados</h3>
+          <div class="table-wrap">
+            <table class="data-table" id="coupons-table">
+              <thead><tr><th>Código</th><th>Descrição</th><th>Tipo</th><th>Valor</th><th>Status</th><th></th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- HU21 -->
+      <section class="tab-panel" id="tab-clientes">
+        <div class="panel">
+          <h3>Clientes cadastrados</h3>
+          <div class="table-wrap">
+            <table class="data-table" id="customers-table">
+              <thead><tr><th>Nome</th><th>E-mail</th><th>Status</th><th></th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- HU20 -->
+      <section class="tab-panel" id="tab-relatorios">
+        <div class="panel">
+          <div class="form-row two-cols">
+            <div class="form-group">
+              <label for="report-from">De</label>
+              <input type="date" id="report-from">
+            </div>
+            <div class="form-group">
+              <label for="report-to">Até</label>
+              <input type="date" id="report-to">
+            </div>
+          </div>
+          <button id="report-generate-btn" class="btn btn-secondary">Gerar relatório</button>
+
+          <div id="report-summary" style="margin-top:16px;"></div>
+
+          <h3 style="margin-top:20px;">Produtos mais vendidos</h3>
+          <div class="table-wrap">
+            <table class="data-table" id="top-products-table">
+              <thead><tr><th>Cupcake</th><th>Qtd. vendida</th><th>Receita</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <h3 style="margin-top:20px;">Receita por dia</h3>
+          <div class="table-wrap">
+            <table class="data-table" id="revenue-by-day-table">
+              <thead><tr><th>Dia</th><th>Receita</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Cupcakeria — Projeto acadêmico de Engenharia de Software I.</p>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cupcakeria — Minha Conta</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <h1 class="logo">🧁 Cupcakeria</h1>
+      <p class="tagline">Cupcakes artesanais feitos com carinho</p>
+      <nav id="site-nav" class="site-nav"></nav>
+    </div>
+  </header>
+
+  <main class="container" style="max-width:480px;">
+    <div id="logged-in-view" class="panel" hidden>
+      <h2>Olá, <span id="user-name"></span>!</h2>
+      <p class="muted" id="user-email"></p>
+      <button id="logout-btn" class="btn btn-secondary">Sair da conta</button>
+    </div>
+
+    <div id="auth-view" hidden>
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="login">Entrar</button>
+        <button class="tab-btn" data-tab="register">Criar conta</button>
+      </div>
+
+      <div class="tab-panel active panel" id="tab-login">
+        <div id="login-alert"></div>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="login-email">E-mail</label>
+            <input type="email" id="login-email" required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Senha</label>
+            <input type="password" id="login-password" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+        </form>
+        <p class="muted" style="margin-top:10px;">Conta de administrador para testes: admin@cupcakeria.com / admin123</p>
+      </div>
+
+      <div class="tab-panel panel" id="tab-register">
+        <div id="register-alert"></div>
+        <form id="register-form">
+          <div class="form-group">
+            <label for="register-name">Nome</label>
+            <input type="text" id="register-name" required>
+          </div>
+          <div class="form-group">
+            <label for="register-email">E-mail</label>
+            <input type="email" id="register-email" required>
+          </div>
+          <div class="form-group">
+            <label for="register-password">Senha (mín. 6 caracteres)</label>
+            <input type="password" id="register-password" minlength="6" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Criar conta</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Cupcakeria — Projeto acadêmico de Engenharia de Software I.</p>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/conta.js"></script>
+</body>
+</html>
