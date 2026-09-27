@@ -132,18 +132,10 @@ quanto com testes automatizados.
 
 ## 📷 Imagens dos cupcakes
 
-O projeto já vem com uma foto para **cada cupcake e cada kit** em
-`public/images/`, então o catálogo funciona 100% assim que você abre o
-projeto — nenhuma foto quebrada ou aviso de "imagem pendente".
-
 Como este ambiente não tem acesso a bancos de imagens externos (Unsplash,
 Pexels etc.), as fotos incluídas são **ilustrações vetoriais geradas
 especificamente para cada sabor** (cores e coberturas combinando com a
 descrição de cada produto), em vez de fotografias reais.
-
-Se você quiser trocar por fotos reais depois, é só substituir o arquivo
-correspondente em `public/images/` **mantendo o mesmo nome**, usando estes
-bancos gratuitos como referência:
 
 | Sabor | Nome do arquivo | Buscar em |
 |---|---|---|
@@ -157,10 +149,6 @@ bancos gratuitos como referência:
 | Nozes | `cupcake-nozes.jpg` | https://unsplash.com/s/photos/walnut-cupcake |
 | Kit caixa 6 | `kit-caixa-6.jpg` | https://unsplash.com/s/photos/cupcake-box |
 | Kit caixa 12 | `kit-caixa-12.jpg` | https://unsplash.com/s/photos/cupcake-box |
-
-Se um arquivo de imagem for removido ou não existir, o site continua
-funcionando normalmente e mostra um aviso amigável no lugar da foto — não
-quebra a página (proteção usada na validação da HU01/RN#1).
 
 ## Decisões de projeto (simplificações conscientes)
 
